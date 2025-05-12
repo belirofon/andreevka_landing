@@ -2,7 +2,9 @@
   <section id="gallery" class="section bg-primary-50">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="heading-lg text-primary-700 mb-4">Галерея</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-primary-800">
+          Галерея: фото Андреевки и окрестностей Севастополя
+        </h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700">
           Познакомьтесь с живописными пейзажами Андреевки через нашу фотогалерею

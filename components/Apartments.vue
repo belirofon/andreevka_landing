@@ -48,7 +48,9 @@ useHead({
   <section id="apartments" class="section bg-white">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="heading-lg text-primary-700 mb-4 reveal">Где остановиться</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-primary-800">
+        Где остановиться в Андреевке: жильё у моря
+      </h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
           {{ lodgingData.description }} <!-- Можно использовать данные из скрипта -->
@@ -57,7 +59,7 @@ useHead({
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div class="reveal">
-          <h3 class="heading-md text-primary-600 mb-6">Комфортабельные номера</h3>
+            <h3 class="text-xl font-semibold mb-2 text-primary-700">Комфортабельные номера в Андреевке</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="relative overflow-hidden rounded-lg shadow-lg group">
               <img src="@assets/images/apparts/app_1.jpg" alt="Номер 1" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
@@ -81,7 +83,7 @@ useHead({
         </div>
 
         <div class="reveal" style="transition-delay: 0.2s;">
-          <h3 class="heading-md text-primary-600 mb-6">Уютный дом для семейного отдыха</h3>
+            <h3 class="text-xl font-semibold mb-2 text-primary-700">Уютный дом для семейного отдыха в Крыму</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="relative overflow-hidden rounded-lg shadow-lg group">
               <img src="@assets/images/apparts/home_1.jpg" alt="Дом 1" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">

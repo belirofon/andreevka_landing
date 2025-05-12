@@ -2,7 +2,9 @@
   <section id="attractions" class="section bg-white">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="heading-lg text-primary-700 mb-4 reveal">Достопримечательности</h2>
+        <h2 class="text-3xl font-bold text-center mb-12 text-primary-800">
+          Достопримечательности Андреевки и Севастополя: что посмотреть
+        </h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
           Откройте для себя уникальные места в Андреевке и окрестностях Севастополя

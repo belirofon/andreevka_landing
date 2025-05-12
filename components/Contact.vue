@@ -2,7 +2,7 @@
   <section id="contact" class="section bg-white">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="heading-lg text-primary-700 mb-4 reveal">Свяжитесь с нами</h2>
+        <h2 class="heading-lg text-primary-700 mb-4 reveal">Контакты: забронировать жильё в Андреевке</h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
           Есть вопросы об Андреевке? Хотите организовать поездку? Мы всегда на связи!
