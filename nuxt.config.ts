@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/nuxt',
     '@vueuse/nuxt',
+    '@nuxtjs/sitemap',
   ],
   alias: {
     '@assets': './assets',
@@ -24,5 +25,10 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' }
       ]
     }
+  },
+  // Add sitemap configuration
+  sitemap: {
+    hostname: 'https://andreevka.netlify.app',
+    gzip: true,
   }
 })

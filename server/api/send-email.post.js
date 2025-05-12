@@ -12,33 +12,32 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
   // Получаем переменные окружения
-  // Важно: Эти переменные должны быть установлены в вашем .env файле
-  // GMAIL_USER - ваш email адрес для отправки (например, n.sannikov1988@gmail.com)
-  // GMAIL_APP_PASSWORD - ваш пароль приложения Gmail
-  const { GMAIL_USER, GMAIL_APP_PASSWORD, EMAIL_RECIPIENT } = process.env;
+  const { MAIL_USER, MAIL_PASSWORD, EMAIL_RECIPIENT } = process.env;
 
-  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !EMAIL_RECIPIENT) {
-    console.error('GMAIL_USER, GMAIL_APP_PASSWORD, or EMAIL_RECIPIENT is not set in environment variables.');
+  if (!MAIL_USER || !MAIL_PASSWORD || !EMAIL_RECIPIENT) {
+    console.error('MAIL_USER, MAIL_PASSWORD, или EMAIL_RECIPIENT не установлены в переменных окружения.');
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Email server configuration error.' }),
+      body: JSON.stringify({ error: 'Ошибка конфигурации сервера.' }),
     };
   }
 
-  // Создаем transporter для nodemailer
+  // Создаем транспортер для Nodemailer с Mail.ru
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.mail.ru',
+    port: 465,
+    secure: true, // true для порта 465, false для 587
     auth: {
-      user: GMAIL_USER, 
-      pass: GMAIL_APP_PASSWORD, 
+      user: MAIL_USER, // Ваш email
+      pass: MAIL_PASSWORD, // Ваш пароль
     },
   });
 
   // Опции письма
   const mailOptions = {
-    from: GMAIL_USER, // Отправитель (ваш email)
+    from: MAIL_USER, // Отправитель (ваш email)
     to: EMAIL_RECIPIENT, // Получатель
-    subject: `Новое сообщение с сайта Andreevka Landing: ${body.subject || 'Без темы'}`,
+    subject: `Новое сообщение с сайта: ${body.subject || 'Без темы'}`,
     html: `
       <p><strong>Имя:</strong> ${body.name}</p>
       <p><strong>Email:</strong> ${body.email}</p>
@@ -52,13 +51,13 @@ export default defineEventHandler(async (event) => {
     await transporter.sendMail(mailOptions);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Email sent successfully' }),
+      body: JSON.stringify({ message: 'Письмо успешно отправлено' }),
     };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Ошибка при отправке письма:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send email' }),
+      body: JSON.stringify({ error: 'Не удалось отправить письмо' }),
     };
   }
 });
