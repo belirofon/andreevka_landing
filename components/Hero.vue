@@ -1,7 +1,7 @@
 <template>
-  <section id="home" class="relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
-    <div class="absolute inset-0 w-full h-full">
+    <div class="absolute inset-0">
       <img 
         src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg"
         alt="Hero background"
@@ -12,13 +12,13 @@
 
     <!-- Content -->
     <div class="container relative z-10 text-center px-4">
-      <h1 class="text-7xl md:text-9xl font-bold text-white tracking-wider mb-4 animate-fade-in">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-wider mb-4 animate-fade-in">
         АНДРЕЕВКА
       </h1>
-      <h2 class="text-xl md:text-3xl font-semibold text-white mb-8 animate-slide-up">
+      <h2 class="text-lg sm:text-xl md:text-3xl font-semibold text-white mb-8 animate-slide-up">
         ЖЕМЧУЖИНА СЕВАСТОПОЛЯ
       </h2>
-      <p class="text-white text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.2s;">
+      <p class="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.2s;">
         Откройте для себя уникальное место с удивительной природой, чистейшими пляжами и захватывающими пейзажами на берегу Чёрного моря.
       </p>
       <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-slide-up" style="animation-delay: 0.4s;">
