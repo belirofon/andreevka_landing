@@ -116,7 +116,7 @@
                 </div>
                 <div>
                   <h4 class="font-semibold text-secondary-800 mb-1">Телефон</h4>
-                  <p class="text-secondary-700">+7 (978) 123-45-67</p>
+                  <p class="text-secondary-700">+7 (978) 494-56-78</p>
                 </div>
               </div>
 
