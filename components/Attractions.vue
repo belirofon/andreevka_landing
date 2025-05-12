@@ -37,6 +37,9 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useHead } from '#app'; // Импортируем useHead
+
 import fiolent from '@assets/images/fiolent.jpg';
 import hersones from '@assets/images/hersones.jpg';
 import balaklava from '@assets/images/balaklava.jpg';
@@ -86,4 +89,25 @@ const attractions = [
     type: 'Культурный объект'
   }
 ];
+
+// Генерируем JSON-LD для каждой достопримечательности
+const attractionsSchema = computed(() => {
+  return attractions.map(attraction => ({
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    'name': attraction.title,
+    'description': attraction.description,
+    'image': attraction.imageUrl, // Убедитесь, что imageUrl - это полный URL или путь от корня сайта
+    // Можно добавить 'geo' (координаты), 'address', 'publicAccess', etc.
+  }));
+});
+
+// Добавляем скрипты в head
+useHead({
+  script: attractionsSchema.value.map(schema => ({
+    type: 'application/ld+json',
+    children: JSON.stringify(schema)
+  }))
+});
+
 </script>

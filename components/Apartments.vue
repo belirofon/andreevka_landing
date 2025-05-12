@@ -1,3 +1,49 @@
+<script setup>
+import { useHead } from '#app';
+
+// Пример данных - замените на свои!
+const lodgingData = {
+  name: "Гостевой Дом 'У Моря' в Андреевке", // Название вашего объекта
+  description: "Комфортабельные номера и уютный дом для семейного отдыха в Андреевке, Севастополь.",
+  address: {
+    streetAddress: "ул. Приморская, 10", // Улица и дом
+    addressLocality: "Андреевка",
+    addressRegion: "Севастополь",
+    postalCode: "299815",
+    addressCountry: "RU"
+  },
+  telephone: "+7-978-123-45-67", // Ваш телефон
+  // Можно добавить priceRange, starRating, petsAllowed, checkinTime, checkoutTime и т.д.
+  // Также можно добавить фотографии номеров/дома в поле 'photo'
+};
+
+const lodgingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  'name': lodgingData.name,
+  'description': lodgingData.description,
+  'telephone': lodgingData.telephone,
+  'address': {
+    '@type': 'PostalAddress',
+    ...lodgingData.address
+  },
+  // 'photo': [
+  //   { '@type': 'ImageObject', 'url': 'https://andreevka.netlify.app/assets/images/apparts/app_1.jpg' },
+  //   { '@type': 'ImageObject', 'url': 'https://andreevka.netlify.app/assets/images/apparts/home_1.jpg' }
+  // ]
+};
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(lodgingSchema)
+    }
+  ]
+});
+
+</script>
+
 <template>
   <section id="apartments" class="section bg-white">
     <div class="container">
@@ -5,7 +51,7 @@
         <h2 class="heading-lg text-primary-700 mb-4 reveal">Где остановиться</h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
-          Огрромный дом с уютными номерами и балконами
+          {{ lodgingData.description }} <!-- Можно использовать данные из скрипта -->
         </p>
       </div>
 
