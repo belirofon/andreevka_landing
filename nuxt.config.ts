@@ -1,7 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: false },
+  devtools: {
+    // Enable devtools (default is true in dev mode)
+    enabled: true,
+    auth: {
+      // IMPORTANT: Set NUXT_DEVTOOLS_TOKEN in your .env file for security
+      // See https://devtools.nuxtjs.org/guide/authentication
+      token: process.env.NUXT_DEVTOOLS_TOKEN
+    }
+  },
   css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/tailwindcss',
@@ -21,7 +29,7 @@ export default defineNuxtConfig({
         { hid: 'description', name: 'description', content: 'Село Андреевка - живописное место в Севастополе, Крым. Откройте для себя прекрасные пляжи, чистое море и удивительную природу.' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' }
       ]
     }

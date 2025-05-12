@@ -3,7 +3,7 @@
     <div class="absolute inset-0 bg-primary-900 opacity-80"></div>
     <div class="container relative z-10">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-center mb-12 text-primary-800">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">
           Отзывы об отдыхе в Андреевке
         </h2>
         <div class="w-20 h-1 bg-sand-400 mx-auto mb-8 reveal"></div>
