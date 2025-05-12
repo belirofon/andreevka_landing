@@ -3,9 +3,9 @@
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
         <div>
-          <h4 class="text-xl font-semibold mb-4">О посёлке Андреевка</h4>
+          <h4 class="text-xl font-semibold mb-4">О селе Андреевка</h4>
           <p class="text-primary-100 mb-4">
-            Живописный посёлок на юго-западном побережье Крыма, известный своими пляжами, чистым морем и красивой природой.
+            Живописное село на юго-западном побережье Крыма, известный своими пляжами, чистым морем и красивой природой.
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-primary-100 hover:text-white transition-colors">

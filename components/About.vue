@@ -2,7 +2,7 @@
   <section id="about" class="section bg-white">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="heading-lg text-primary-700 mb-4 reveal">О посёлке Андреевка</h2>
+        <h2 class="heading-lg text-primary-700 mb-4 reveal">О селе Андреевка</h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
       </div>
 

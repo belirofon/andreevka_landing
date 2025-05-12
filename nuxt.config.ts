@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Посёлок Андреевка - живописное место в Севастополе, Крым. Откройте для себя прекрасные пляжи, чистое море и удивительную природу.' }
+        { hid: 'description', name: 'description', content: 'Село Андреевка - живописное место в Севастополе, Крым. Откройте для себя прекрасные пляжи, чистое море и удивительную природу.' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
