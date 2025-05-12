@@ -3,6 +3,7 @@
     <Header />
     <Hero />
     <About />
+    <Apartments />
     <Gallery />
     <Attractions />
     <Testimonials />

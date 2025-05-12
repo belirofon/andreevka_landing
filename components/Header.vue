@@ -55,6 +55,7 @@ const scrolled = ref(false);
 const menuItems = [
   { label: 'Главная', href: '#home' },
   { label: 'О поселке', href: '#about' },
+  { label: 'Где остановиться', href: '#apartments' },
   { label: 'Галерея', href: '#gallery' },
   { label: 'Достопримечательности', href: '#attractions' },
   { label: 'Отзывы', href: '#testimonials' },
