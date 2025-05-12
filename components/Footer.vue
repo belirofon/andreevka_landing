@@ -28,7 +28,7 @@
           <h4 class="text-xl font-semibold mb-4">Быстрые ссылки</h4>
           <ul class="space-y-2">
             <li><a href="#home" class="text-primary-100 hover:text-white transition-colors">Главная</a></li>
-            <li><a href="#about" class="text-primary-100 hover:text-white transition-colors">О поселке</a></li>
+            <li><a href="#about" class="text-primary-100 hover:text-white transition-colors">Об Андреевке</a></li>
             <li><a href="#gallery" class="text-primary-100 hover:text-white transition-colors">Галерея</a></li>
             <li><a href="#attractions" class="text-primary-100 hover:text-white transition-colors">Достопримечательности</a></li>
             <li><a href="#testimonials" class="text-primary-100 hover:text-white transition-colors">Отзывы</a></li>
