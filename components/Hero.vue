@@ -1,8 +1,12 @@
 <template>
-  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <section id="home" class="relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
-    <div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-      style="background-image: url('https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg');">
+    <div class="absolute inset-0 w-full h-full">
+      <img 
+        src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg"
+        alt="Hero background"
+        class="w-full h-full object-cover"
+      />
       <div class="absolute inset-0 bg-secondary-900 bg-opacity-50"></div>
     </div>
 
