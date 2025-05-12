@@ -5,7 +5,7 @@
         <h2 class="heading-lg text-primary-700 mb-4 reveal">Где остановиться</h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
-          Комфортабельные номера и уютные домики для вашего отдыха
+          Огрромный дом с уютными номерами и балконами
         </p>
       </div>
 
@@ -29,13 +29,13 @@
           <div class="mt-6 space-y-4 text-secondary-700">
             <p>✓ Современные, уютные номера</p>
             <p>✓ Все удобства в номере</p>
-            <p>✓ Кондиционер</p>
+            <p>✓ Общая кухня</p>
             <p>✓ Wi-Fi</p>
           </div>
         </div>
 
         <div class="reveal" style="transition-delay: 0.2s;">
-          <h3 class="heading-md text-primary-600 mb-6">Отдельные домики</h3>
+          <h3 class="heading-md text-primary-600 mb-6">Уютный дом для семейного отдыха</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="relative overflow-hidden rounded-lg shadow-lg group">
               <img src="@assets/images/apparts/home_1.jpg" alt="Дом 1" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
@@ -51,8 +51,6 @@
             </div>
           </div>
           <div class="mt-6 space-y-4 text-secondary-700">
-            <p>✓ Отдельные домики для семейного отдыха</p>
-            <p>✓ Собственная кухня</p>
             <p>✓ Просторная территория</p>
             <p>✓ Парковка</p>
           </div>
