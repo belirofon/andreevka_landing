@@ -92,7 +92,7 @@
                 </div>
                 <div>
                   <h4 class="font-semibold text-secondary-800 mb-1">Адрес</h4>
-                  <p class="text-secondary-700">посёлок Андреевка, Севастополь, Республика Крым, Россия</p>
+                  <p class="text-secondary-700">село Андреевка, Севастополь, Республика Крым, Россия</p>
                 </div>
               </div>
 
