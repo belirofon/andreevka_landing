@@ -39,10 +39,10 @@
         <div>
           <h4 class="text-xl font-semibold mb-4">Полезная информация</h4>
           <ul class="space-y-2">
-            <li><a href="https://vkrim.info/town/andreevka" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Как добраться</a></li>
-            <li><a href="https://seven.travel/ideas/crimea-kuhnya/" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Местная кухня</a></li>
-            <li><a href="https://vkrim.info/town/andreevka#beaches" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Пляжи Андреевки</a></li>
-            <li><a href="https://vkrim.info/town/andreevka#seasons" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Сезоны отдыха</a></li>
+            <li><NuxtLink to="/how-to-get" class="text-primary-100 hover:text-white transition-colors">Как добраться</NuxtLink></li>
+            <li><NuxtLink to="/local-cuisine" class="text-primary-100 hover:text-white transition-colors">Местная кухня</NuxtLink></li>
+            <li><NuxtLink to="/beaches" class="text-primary-100 hover:text-white transition-colors">Пляжи Андреевки</NuxtLink></li>
+            <li><NuxtLink to="/seasons" class="text-primary-100 hover:text-white transition-colors">Сезоны отдыха</NuxtLink></li>
           </ul>
         </div>
         <div>
