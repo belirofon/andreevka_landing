@@ -11,8 +11,11 @@
       <div class="flex justify-between items-start">
         <div>
           <h3 class="text-lg font-semibold text-primary-700 mb-2">А в Севастополе сейчас</h3>
-          <div v-if="weatherData" class="space-y-2">
-            <p class="text-2xl font-bold text-secondary-800">{{ weatherData.temperature }}°C</p>
+          <div v-if="weatherData" class="space-y-2 flex items-center">
+            <p class="text-2xl font-bold text-secondary-800 flex items-center">
+              <span v-html="getWeatherIcon(weatherData.weathercode)" class="w-6 h-6 mr-2"></span>
+              {{ weatherData.temperature }}°C
+            </p>
             <p class="text-secondary-600">
               {{ getWeatherDescription(weatherData.weathercode) }}
             </p>
@@ -40,7 +43,7 @@
 const isVisible = ref(false);
 const weatherData = ref(null);
 
-// Weather codes mapping
+// Маппинг погодных кодов на описания
 const weatherDescriptions = {
   0: 'Ясно',
   1: 'Преимущественно ясно',
@@ -68,10 +71,45 @@ const weatherDescriptions = {
   99: 'Гроза с сильным градом'
 };
 
+// Маппинг погодных кодов на SVG-иконки
+const weatherIcons = {
+  0: '☀️',
+  1: '🌤️',
+  2: '⛅',
+  3: '☁️',
+  45: '🌫️',
+  48: '🌨️',
+  51: '🌧️',
+  53: '🌧️',
+  55: '🌧️',
+  61: '🌦️',
+  63: '🌧️',
+  65: '🌧️',
+  71: '🌨️',
+  73: '🌨️',
+  75: '❄️',
+  77: '❄️',
+  80: '🌧️',
+  81: '🌧️',
+  82: '🌧️',
+  85: '🌨️',
+  86: '❄️',
+  95: '🌩️',
+  96: '⛈️',
+  99: '🌩️'
+};
+
+// Функция получения описания погоды
 const getWeatherDescription = (code) => {
   return weatherDescriptions[code] || 'Нет данных';
 };
 
+// Функция получения иконки погоды
+const getWeatherIcon = (code) => {
+  return weatherIcons[code] || '❓';
+};
+
+// Получение данных о погоде
 const fetchWeather = async () => {
   try {
     const response = await fetch(
@@ -84,10 +122,12 @@ const fetchWeather = async () => {
   }
 };
 
+// Закрытие окна
 const close = () => {
   isVisible.value = false;
 };
 
+// Инициализация при монтировании
 onMounted(() => {
   fetchWeather();
   setTimeout(() => {
