@@ -27,7 +27,8 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: 'Село Андреевка - живописное место в Севастополе, Крым. Откройте для себя прекрасные пляжи, чистое море и удивительную природу.' },
-        { name: 'google-site-verification', content: 'UNnBqj7Z18qKXElArgSL8skTKXxEX5dnfrEXDZsjNns' }
+        { name: 'google-site-verification', content: 'UNnBqj7Z18qKXElArgSL8skTKXxEX5dnfrEXDZsjNns' },
+        {name:"yandex-verification", content:"b8cf9f5436bab5f5" }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
