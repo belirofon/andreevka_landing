@@ -39,14 +39,13 @@
         <div>
           <h4 class="text-xl font-semibold mb-4">Полезная информация</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-primary-100 hover:text-white transition-colors">Как добраться</a></li>
-            <li><a href="#" class="text-primary-100 hover:text-white transition-colors">Где остановиться</a></li>
-            <li><a href="#" class="text-primary-100 hover:text-white transition-colors">Местная кухня</a></li>
-            <li><a href="#" class="text-primary-100 hover:text-white transition-colors">Пляжи Андреевки</a></li>
-            <li><a href="#" class="text-primary-100 hover:text-white transition-colors">Сезоны отдыха</a></li>
+            <li><a href="https://vkrim.info/town/andreevka" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Как добраться</a></li>
+            <li><a href="https://tvil.ru/city/krym-andreevka/" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Где остановиться</a></li>
+            <li><a href="https://andreevka-tavrida.ru/andreevka-otdih" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Местная кухня</a></li>
+            <li><a href="https://vkrim.info/town/andreevka#beaches" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Пляжи Андреевки</a></li>
+            <li><a href="https://vkrim.info/town/andreevka#seasons" target="_blank" rel="noopener noreferrer" class="text-primary-100 hover:text-white transition-colors">Сезоны отдыха</a></li>
           </ul>
         </div>
-        
         <div>
           <h4 class="text-xl font-semibold mb-4">Контакты</h4>
           <ul class="space-y-3">
