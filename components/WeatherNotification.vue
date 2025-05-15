@@ -7,35 +7,38 @@
     leave-from-class="transform translate-x-0 opacity-100"
     leave-to-class="transform translate-x-full opacity-0"
   >
-    <div v-if="isVisible" class="fixed top-4 right-4 max-w-sm w-full bg-white rounded-lg shadow-lg p-4 z-50">
-      <div class="flex justify-between items-start">
-        <div>
-          <h3 class="text-lg font-semibold text-primary-700 mb-2">А в Севастополе сейчас</h3>
-          <div v-if="weatherData" class="space-y-2 flex items-center">
-            <p class="text-2xl font-bold text-secondary-800 flex items-center">
-              <span v-html="getWeatherIcon(weatherData.weathercode)" class="w-6 h-6 mr-2"></span>
-              {{ weatherData.temperature }}°C
-            </p>
-            <p class="text-secondary-600">
-              {{ getWeatherDescription(weatherData.weathercode) }}
-            </p>
-            <p class="text-sm text-secondary-500">
-              Ветер: {{ weatherData.windspeed }} м/с
-            </p>
-          </div>
-          <div v-else class="text-secondary-600">
-            Загрузка данных...
-          </div>
+    <div v-if="isVisible" class="fixed top-4 right-4 max-w-sm w-full bg-white rounded-lg shadow-lg p-5 z-50">
+  <div class="flex justify-between items-start space-x-4">
+    <div>
+      <h3 class="text-lg font-semibold text-primary-700 mb-3">А в Севастополе сейчас</h3>
+      <div v-if="weatherData" class="space-y-3">
+        <div class="flex items-center space-x-2">
+          <span v-html="getWeatherIcon(weatherData.weathercode)" class="text-3xl"></span>
+          <p class="text-2xl font-bold text-secondary-800">
+            {{ weatherData.temperature }}°C
+          </p>
         </div>
-        <button 
-          @click="close" 
-          class="text-secondary-400 hover:text-secondary-600 transition-colors"
-          aria-label="Закрыть"
-        >
-          ✕
-        </button>
+        <p class="text-secondary-600 text-lg">
+          {{ getWeatherDescription(weatherData.weathercode) }}
+        </p>
+        <p class="text-sm text-secondary-500">
+          Ветер: {{ weatherData.windspeed }} м/с
+        </p>
+      </div>
+      <div v-else class="text-secondary-600">
+        Загрузка данных...
       </div>
     </div>
+    <button 
+      @click="close" 
+      class="text-secondary-400 hover:text-secondary-600 transition-colors rounded-full p-1 ml-3"
+      aria-label="Закрыть"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+
   </Transition>
 </template>
 
