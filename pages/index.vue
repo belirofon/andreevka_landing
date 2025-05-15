@@ -9,6 +9,7 @@
     <Testimonials />
     <Contact />
     <Footer />
+    <WeatherNotification />
   </div>
 </template>
 
