@@ -20,6 +20,9 @@ export default defineNuxtConfig({
   alias: {
     '@assets': './assets',
   },
+  plugins: [
+    '~/plugins/yandex-metrika.client.js'
+  ],
   app: {
     head: {
       title: 'Андреевка - Севастополь, Крым',
