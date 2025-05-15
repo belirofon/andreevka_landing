@@ -16,7 +16,7 @@
         ОТДЫХ В АНДРЕЕВКЕ
       </h1>
       <h2 class="text-lg sm:text-xl md:text-3xl font-semibold text-white mb-8 animate-slide-up">
-        Жильё и пляжи у моря | Севастополь, Крым
+        Жильё у моря | Севастополь, Крым
       </h2>
       <p class="text-white text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.2s;">
         Откройте для себя уникальный отдых в Андреевке (Крым): удивительная природа, чистейшие пляжи Севастополя и захватывающие пейзажи на берегу Чёрного моря.
