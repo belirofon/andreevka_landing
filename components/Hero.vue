@@ -3,7 +3,7 @@
     <!-- Background Image -->
     <div class="absolute inset-0">
       <img 
-        src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg"
+        src="@/assets/images/main_bg.jpeg"
         alt="Hero background"
         class="w-full h-full object-cover"
       />
