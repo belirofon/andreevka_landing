@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: {
-    // Enable devtools (default is true in dev mode)
-    enabled: true,
+    // Disable devtools to prevent cross-origin frame access errors
+    enabled: false,
     auth: {
       // IMPORTANT: Set NUXT_DEVTOOLS_TOKEN in your .env file for security
       // See https://devtools.nuxtjs.org/guide/authentication
