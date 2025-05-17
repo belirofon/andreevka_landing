@@ -24,7 +24,8 @@
         <div class="mb-8 flex justify-between items-center">
           <h1 class="text-2xl font-bold text-white">Панель управления</h1>
           <div class="flex items-center space-x-4">
-            <span class="text-gray-300">{{ authStore.user?.name }}</span>
+            <span class="text-gray-300" v-if="authStore && authStore.user">{{ authStore.user.name }}</span>
+            <span class="text-gray-300" v-else>Пользователь не загружен</span>
             <button
               @click="handleLogout"
               class="px-4 py-2 bg-primary-700 text-white rounded-lg hover:bg-primary-600 transition-colors"
@@ -51,13 +52,18 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div class="bg-primary-800 p-6 rounded-lg">
             <h3 class="text-white text-lg font-medium mb-4">Обзор доходов</h3>
-            <Line :data="revenueData" :options="chartOptions" class="h-64" />
+            <div class="h-64">
+              <Line :data="revenueData" :options="chartOptions" />
+            </div>
           </div>
           <div class="bg-primary-800 p-6 rounded-lg">
             <h3 class="text-white text-lg font-medium mb-4">Статистика посещений</h3>
-            <Bar :data="visitsData" :options="chartOptions" class="h-64" />
+            <div class="h-64">
+              <Bar :data="visitsData" :options="chartOptions" />
+            </div>
           </div>
-        </div>
+      </div>
+
       </main>
     </div>
   </div>
@@ -65,6 +71,7 @@
 
 <script setup>
 import { Line, Bar } from 'vue-chartjs';
+import { useAuthStore } from '../../stores/auth.ts';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -141,8 +148,8 @@ const visitsData = {
 };
 
 const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
+  responsive: false,  // Отключаем адаптивность
+  maintainAspectRatio: false,  // Отключаем поддержку соотношения сторон
   scales: {
     y: {
       beginAtZero: true,
@@ -170,4 +177,5 @@ const chartOptions = {
     }
   }
 };
+
 </script>

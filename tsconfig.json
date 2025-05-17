@@ -1,4 +1,13 @@
 {
-  // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"],
+      "@stores/*": ["stores/*"]
+    }
+  },
+  "include": [
+    "stores/**/*.ts",
+    "pages/**/*.vue"
+  ]
 }

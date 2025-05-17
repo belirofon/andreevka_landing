@@ -15,13 +15,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/nuxt',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
     '@nuxtjs/sitemap',
   ],
   alias: {
     '@assets': './assets',
+    '@': '.'
   },
   plugins: [
-    '~/plugins/yandex-metrika.client.js'
+    '~/plugins/yandex-metrika.client.js',
   ],
   app: {
     head: {
@@ -31,13 +33,24 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: 'Село Андреевка - живописное место в Севастополе, Крым. Откройте для себя прекрасные пляжи, чистое море и удивительную природу.' },
         { name: 'google-site-verification', content: 'UNnBqj7Z18qKXElArgSL8skTKXxEX5dnfrEXDZsjNns' },
-        {name: 'yandex-verification', content:'b8cf9f5436bab5f5' }
+        { name: 'yandex-verification', content:'b8cf9f5436bab5f5' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' }
       ]
     }
+  },
+  runtimeConfig: {
+    // Приватные переменные
+    adminEmail: process.env.ADMIN_EMAIL,
+    adminPassword: process.env.ADMIN_PASSWORD,
+
+    public: {
+      // Публичные переменные
+      adminEmail: process.env.ADMIN_EMAIL,
+      adminPassword: process.env.ADMIN_PASSWORD,
+    },
   },
   // Add sitemap configuration
   sitemap: {

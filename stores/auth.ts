@@ -11,20 +11,6 @@ interface AuthState {
   isAuthenticated: boolean;
 }
 
-const users = [
-  {
-    email: 'n.sannikov@gmail.com',
-    password: '12345_Qwerty_2025!',
-    name: 'Nikolay Sannikov',
-    role: 'admin'
-  },
-  {
-    email: 'admin@andreevka.ru',
-    password: 'Admin_2025!',
-    name: 'Admin User',
-    role: 'admin'
-  }
-];
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
@@ -34,26 +20,43 @@ export const useAuthStore = defineStore('auth', {
 
   actions: {
     async login(email: string, password: string) {
-      const user = users.find(u => u.email === email && u.password === password);
-      
+      const config = useRuntimeConfig();
+  
+      const users = [
+        {
+          email: config.public.adminEmail,
+          password: config.public.adminPassword,
+          name: 'Admin User',
+          role: 'admin',
+        },
+      ];
+  
+      // Поиск пользователя в массиве
+      const user = users.find(
+        (user) => user.email === email && user.password === password
+      );
+  
+      // Проверка на наличие пользователя
       if (user) {
         this.user = {
           email: user.email,
           name: user.name,
-          role: user.role
+          role: user.role,
         };
         this.isAuthenticated = true;
         return true;
       }
-      
+  
+      // Если пользователь не найден
       return false;
     },
-
+  
     logout() {
       this.user = null;
       this.isAuthenticated = false;
-    }
+    },
   },
+  
 
   getters: {
     isAdmin: (state) => state.user?.role === 'admin'
