@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/sitemap',
+    '@nuxtjs/supabase',
   ],
   alias: {
     '@assets': './assets',
@@ -24,6 +25,7 @@ export default defineNuxtConfig({
   },
   plugins: [
     '~/plugins/yandex-metrika.client.js',
+    '~/plugins/supabase.client.js',
   ],
   app: {
     head: {

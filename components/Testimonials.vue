@@ -3,12 +3,10 @@
     <div class="absolute inset-0 bg-primary-900 opacity-80"></div>
     <div class="container relative z-10">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-center mb-12 text-white">
-          Отзывы об отдыхе в Андреевке
-        </h2>
+ <h2 class="text-3xl font-bold text-center mb-12 text-white">{{ content?.main_title || 'Отзывы об отдыхе в Андреевке' }}</h2>
         <div class="w-20 h-1 bg-sand-400 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-white opacity-90 reveal">
-          Впечатления наших гостей о посещении Андреевки
+ {{ content?.description || 'Впечатления наших гостей о посещении Андреевки' }}
         </p>
       </div>
 
@@ -28,10 +26,10 @@
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                   </svg>
                 </div>
-                <blockquote class="text-xl italic text-white mb-6">"{{ testimonial.text }}"</blockquote>
+                <blockquote class="text-xl italic text-white mb-6">"{{ testimonial.text || 'Загрузка отзыва...' }}"</blockquote>
                 <div class="flex items-center">
                   <div class="flex-shrink-0 mr-3">
-                    <img class="h-12 w-12 rounded-full object-cover" :src="testimonial.avatar" :alt="testimonial.name">
+ <img class="h-12 w-12 rounded-full object-cover" :src="testimonial.avatar_url || 'https://via.placeholder.com/48'" :alt="testimonial.name || 'Аватар'">
                   </div>
                   <div class="text-left">
                     <div class="font-semibold text-white">{{ testimonial.name }}</div>
@@ -53,39 +51,23 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+const supabase = useSupabaseClient();
+
 const SwiperAutoplay = Autoplay;
 const SwiperPagination = Pagination;
 
-const testimonials = [
-  {
-    name: 'Александр К.',
-    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
-    text: 'Отдыхали семьей в Андреевке этим летом — просто потрясающе! Чистое море, пляжи не переполнены, хорошая инфраструктура. Идеальное место для спокойного отдыха с детьми. Обязательно приедем снова!',
-    rating: 5,
-    date: 'Август 2024'
-  },
-  {
-    name: 'Елена М.',
-    avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
-    text: 'Андреевка — настоящая жемчужина Крыма! Живописные виды, чистейшее море, приветливые местные жители. На пляже даже в высокий сезон можно найти уединенное место. Рекомендую всем, кто ценит атмосферный отдых.',
-    rating: 5,
-    date: 'Июль 2024'
-  },
-  {
-    name: 'Виктор Д.',
-    avatar: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg',
-    text: 'Я побывал во многих местах Крыма, но Андреевка покорила особой атмосферой. Здесь идеальное сочетание природной красоты и комфорта. Особенно впечатлили закаты — это что-то невероятное! Обязательно вернусь.',
-    rating: 4,
-    date: 'Сентябрь 2023'
-  },
-  {
-    name: 'Марина С.',
-    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg',
-    text: 'Отдыхали с подругами в Андреевке — отличный выбор для тех, кто устал от городского шума. Море кристально чистое, воздух наполнен ароматами трав. Множество красивых мест для фотосессий. Спасибо за отличный отдых!',
-    rating: 5,
-    date: 'Июнь 2024'
-  }
-];
+const testimonials = ref([]);
+const content = ref(null);
+
+onMounted(async () => {
+  const { data: testimonialsData, error: testimonialsError } = await supabase.from('testimonials').select('*').order('order_number');
+  if (testimonialsError) console.error('Error loading testimonials:', testimonialsError);
+  else testimonials.value = testimonialsData || [];
+
+  const { data: contentData, error: contentError } = await supabase.from('testimonials_section_content').select('*').single();
+  if (contentError) console.error('Error loading testimonials section content:', contentError);
+  else content.value = contentData;
+});
 </script>
 
 <style scoped>

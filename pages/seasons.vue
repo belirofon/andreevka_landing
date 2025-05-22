@@ -1,21 +1,21 @@
 <template>
   <div>
     <Header />
-    <section class="relative h-[60vh] flex items-center justify-center">
+ <section class="relative h-[60vh] flex items-center justify-center" v-if="pageContent">
       <div class="absolute inset-0">
-        <img 
-          src="https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg"
-          alt="Сезоны отдыха в Андреевке"
+ <img
+ :src="pageContent.background_image_url || 'https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg'"
+ :alt="pageContent.page_title || 'Сезоны отдыха в Андреевке'"
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-secondary-900 bg-opacity-50"></div>
       </div>
       <div class="relative z-10 text-center px-4">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-          Сезоны отдыха
+ <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+ {{ pageContent.page_title || 'Загрузка...' }}
         </h1>
         <p class="text-lg sm:text-xl text-white max-w-2xl mx-auto">
-          Когда лучше всего отдыхать в Андреевке
+ {{ pageContent.page_subtitle || 'Загрузка...' }}
         </p>
       </div>
     </section>

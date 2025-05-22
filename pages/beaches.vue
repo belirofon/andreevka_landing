@@ -3,25 +3,25 @@
     <Header />
     <section class="relative h-[60vh] flex items-center justify-center">
       <div class="absolute inset-0">
-        <img 
-          src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg"
-          alt="Пляжи Андреевки"
+ <img
+ :src="pageContent.background_image_url || 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg'"
+ :alt="pageContent.page_title || 'Пляжи Андреевки'"
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-secondary-900 bg-opacity-50"></div>
       </div>
       <div class="relative z-10 text-center px-4">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-          Пляжи Андреевки
+ {{ pageContent.page_title || 'Пляжи Андреевки' }}
         </h1>
         <p class="text-lg sm:text-xl text-white max-w-2xl mx-auto">
-          Лучшие места для пляжного отдыха в Андреевке
+ {{ pageContent.page_subtitle || 'Лучшие места для пляжного отдыха в Андреевке' }}
         </p>
       </div>
     </section>
 
-    <main class="min-h-screen bg-white py-16">
-      <div class="container mx-auto px-4">
+ <main v-if="!loading" class="min-h-screen bg-white py-16">
+ <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="rounded-lg overflow-hidden shadow-lg">
@@ -92,3 +92,47 @@
     <Footer />
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useSupabaseClient } from '#imports';
+
+const supabase = useSupabaseClient();
+
+const pageContent = ref({});
+const beachSections = ref([]);
+const loading = ref(true);
+
+async function fetchData() {
+ try {
+ loading.value = true;
+
+ // Fetch page content
+ const { data: pageData, error: pageError } = await supabase
+ .from('beaches_page_content')
+ .select('*')
+ .single();
+
+ if (pageError) throw pageError;
+ pageContent.value = pageData || {};
+
+ // Fetch beach sections
+ const { data: sectionsData, error: sectionsError } = await supabase
+ .from('beach_sections')
+ .select('*')
+ .order('order_number', { ascending: true });
+
+ if (sectionsError) throw sectionsError;
+ beachSections.value = sectionsData || [];
+
+ } catch (error) {
+ console.error('Error fetching beaches page data:', error.message);
+ } finally {
+ loading.value = false;
+ }
+}
+
+onMounted(() => {
+ fetchData();
+});
+</script>
