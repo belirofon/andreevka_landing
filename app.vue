@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+
 // Define base SEO values needed for meta tags
 const siteUrl = 'https://andreevka.netlify.app'; // Your site's canonical URL
 const siteTitle = 'Отдых в Андреевке - Севастополь, Крым | Жильё у моря'; // SEO-optimized title

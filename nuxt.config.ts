@@ -11,6 +11,21 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    // Приватные переменные
+    adminEmail: process.env.ADMIN_EMAIL,
+    adminPassword: process.env.ADMIN_PASSWORD,
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_KEY,
+
+    public: {
+      // Публичные переменные
+      adminEmail: process.env.ADMIN_EMAIL,
+      adminPassword: process.env.ADMIN_PASSWORD,
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    },
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@formkit/nuxt',
@@ -19,13 +34,17 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxtjs/supabase',
   ],
-  alias: {
-    '@assets': './assets',
-    '@': '.'
+  supabase: {
+    // Опции для Supabase
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+      exclude: ['/'],
+    },
   },
+ 
   plugins: [
     '~/plugins/yandex-metrika.client.js',
-    '~/plugins/supabase.client.js',
   ],
   app: {
     head: {
@@ -43,17 +62,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  runtimeConfig: {
-    // Приватные переменные
-    adminEmail: process.env.ADMIN_EMAIL,
-    adminPassword: process.env.ADMIN_PASSWORD,
-
-    public: {
-      // Публичные переменные
-      adminEmail: process.env.ADMIN_EMAIL,
-      adminPassword: process.env.ADMIN_PASSWORD,
-    },
-  },
+ 
   // Add sitemap configuration
   sitemap: {
     hostname: 'https://andreevka.netlify.app',

@@ -65,9 +65,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useSupabaseClient } from '#imports';
+const supabase = useSupabaseClient()
 
-const supabase = useSupabaseClient();
 const pageContent = ref(null);
 const sections = ref([]);
 const loading = ref(true);

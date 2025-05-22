@@ -44,7 +44,6 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { ref, onMounted, onUnmounted } from 'vue';
-import { useSupabaseClient } from '#imports';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';

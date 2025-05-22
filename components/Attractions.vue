@@ -9,11 +9,11 @@
  </div>
  <div v-else class="text-center mb-16">
         <h2 class="text-3xl font-bold text-center mb-12 text-primary-800">
- {{ sectionContent.main_title }}
+ {{ sectionContent?.main_title }}
         </h2>
         <div class="w-20 h-1 bg-sea-500 mx-auto mb-8 reveal"></div>
         <p class="max-w-2xl mx-auto text-lg text-secondary-700 reveal">
- {{ sectionContent.description }}
+ {{ sectionContent?.description }}
         </p>
       </div>
 
@@ -46,7 +46,6 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { useHead, useSupabaseClient } from '#app';
 
 const supabase = useSupabaseClient();
 
@@ -88,13 +87,13 @@ onMounted(async () => {
 
 // Генерируем JSON-LD для каждой достопримечательности
 const attractionsSchema = computed(() => {
-  return attractions.map(attraction => ({
+  if (!Array.isArray(attractions.value)) return [];
+  return attractions.value.map(attraction => ({
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
     'name': attraction.title,
     'description': attraction.description,
-    'image': attraction.imageUrl, // Убедитесь, что imageUrl - это полный URL или путь от корня сайта
-    // Можно добавить 'geo' (координаты), 'address', 'publicAccess', etc.
+    'image': attraction.image_url, 
   }));
 });
 
